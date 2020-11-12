@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Pangolin);
+@import url(https://fonts.googleapis.com/css?family=Sriracha);
+body{
+    background-color: bisque;
+    color: darkblue;
+    font-family: 'Pangolin',sans-serif;
+}
+h1{
+    font-family: 'Sriracha',sans-serif;
+}

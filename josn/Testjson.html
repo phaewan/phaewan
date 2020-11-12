@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="../js/jquery3_5_1.js" ></script>
+    <script>
+     
+        $(function(){
+
+            var myobj=[
+            {
+            "name":"phaewan",
+            "age":15,
+            "email":"phaewan.tiktuk@gmail.com"},
+            {
+                "name":"c",
+            "age":17,
+            "email":"phaewan@gmail.com"},
+            {
+                "name":"Mr Z",
+            "age":13,
+            "email":"tiktuk@gmail.com",
+            }
+            
+            
+            
+        ]
+
+        //myobj.name="MRr xx "//แก้ไข
+        //myobj.tel="0863349526"// เพิ่มattribute
+        //delete myobj.email; //ลบเเอททริบิว
+
+var x="";
+        for(i in myobj){
+            x+="<br><br>ชื่อคือ "+myobj[i].name;
+            x+="<br>อายุ คือ "+myobj[i].age;
+            x+="<br>E-mail "+myobj[i].email;
+        }
+
+        $("#myMessage").html(x);
+        });
+    </script>
+</head>
+<body>
+    <h1> การดึง json</h1>
+    <div id="myMessage"></div>
+    
+</body>
+</html>

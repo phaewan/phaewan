@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{ border-color: palevioletred;
+        width: 50%;
+        background-color: plum;
+        }
+    </style>
+</head>
+<body background="#CCFFCC">
+   <center><h1>กรอกข้อมูลส่วนตัว</h1></center>
+    <form action="MyForm.html" method="get" name="myForm">
+        <fieldset>
+            <legend>
+                <input type="hidden" name="code" value="2222">
+                <table border="0.5">
+                    
+                        
+                ข้อมูลส่วนตัว
+            </legend>
+           <tr>
+           <td>
+                รหัสบัตรประชาชน 
+            </td>
+        <td>
+                :
+        </td>
+            <td>
+            
+                <input type="text" name="cardid" id="cardid" ><br>
+                ชื่อ : <input type="text" name="fname" id="fname" maxlength="15" ><br>
+                นามสกุล : <input type="text" name="lastname" id="lastname"><br>
+                Login : <input type="text" name="usename" id="usename"> <br>         
+                รหัสผ่าน : <input type="password" name="passw" id="password"> <br>
+                ระบุสีที่ชอบ : <input type="color" name="color" id="lovecolor"> <br>
+                วันเกิด : <input type="date" name="birtday" id="birtday"> <br>
+                แนบรูปตนเอง : <input type="file" name="fileinfo" id="fileinfo"><br>
+                ระบุเพศ
+                <input type="radio" name="gender" value="male">  ผู้ชาย
+                <input type="radio" name="gender" value="female">  ผู้หญิง
+                ระบุสถานะ : <input type="radio" name="status" value="single" checked> โสด
+                           <input type="radio" name="status" value="divorce" checked> หย่าร้าง
+                           <input type="radio" name="status" value="lonely" checked> ไม่มีคนคบ <br>
+                กิจกรรมที่ชอบ : <input type="checkbox" name="activity" value="football" checked> ว่ายน้ำ
+                             <input type="checkbox" name="activity" value="swiming" > นอน
+                             <input type="checkbox" name="activity" value="playgame" > เล่นเกม
+                             <input type="checkbox" name="activity" value="No" > ไม่มี <br>
+                สัตว์เลี้ยงที่ชอบ : <select name="animal" id="">
+                                        <option value="peepo"> ปีโป้</option>
+                                        <option value="soba"> โซบะ </option>
+                                        <option value="No" selected> ไม่มี </option>
+                </select> <br>
+                    นิยามตัวเอง
+                    <textarea name="comment" rows="5" cols="50"></textarea> <br>
+                   
+                   
+                  <input type="submit" value="ส่งข้อมูล">
+                    <input type="reset" value="ล้างหน้าจอ">
+                    <button>ทดสอบอีกครั้ง</button>
+        
+        </fieldset>
+    
+
+
+    </form>
+    
+</body>
+</html>

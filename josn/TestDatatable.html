@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="..//css/mydatatable.css">
+    <script type="text/javascript" src="..//js/jqueryDataTable.js"></script>
+    <script type="text/javascript" src="..//js/jquery-ui-1.12.1/"></script>
+    <script>
+        $(function(){
+        $('#data-table').DataTable(
+            {
+            "ajax": "example2.json",
+        } );
+     } );
+    </script>
+</head>
+<body>
+    <center><h1>Show JSON Data in Jquery DataTables</h1></center>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Address</th>
+                <th>Zipcode</th>
+                <th>Year</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+    </table>
+    <div></div>
+</body>
+</html>
