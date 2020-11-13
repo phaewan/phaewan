@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <style> 
+        input[type=text] {
+ width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #00FFFF;
+  border-radius: 4px;
+          border-radius: 12px;
+        }
+        .button {
+  background-color: #00FFFF;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button {border-radius: 12px;}
+        </style>
+</head>
+<body>
+<center><h1>ระบบลงทะเบียนผู้มีรายได้น้อย</h1></center>
+
+
+<form action="">
+  
+        <label for="thaiID">thaiID :</label> 
+          <input type="text" id="Regis_THAIID" name="Regis_THAIID"> <br>
+
+       <label for="FName">fistname:</label> 
+         <input type="text" id="Regis_FName" name="Regis_FName"> <br>
+
+          <label for="Lastname">Lastname :</label> 
+         <input type="text" id="Regis_LName" name="Regis_LName"><br>
+
+         <label for="State"> State:</label>
+        <input type="text" id="Regis_State" name="Regis_State"><br>
+
+          <label for="Salaly">Saraly :</label> 
+           <input type="text" id="Regis_Salary" name="Regis_Salary"><br>
+
+           <label for="Job">Job:</label>
+            <input type="text" id="Regis_Job" name="Job"><br>
+        
+        <button class="button" id="submit">Submit</button>
+  
+    </form>
+</body>
+</html>
+<script>
+    var db = openDatabase('Regis','1.0','Regis',2*1024*1024);
+    $(function(){
+        db.transaction(function(transaction){
+            var sql=`CREATE TABLE IF NOT EXISTS "Regis" (
+	"RegisID"	INTEGER,
+	"Regis_THAIID"	TEXT,
+	"Regis_FName"	TEXT,
+	"Regis_LName"	TEXT,
+	"Regis_Time"	TEXT,
+	"Regis_State"	TEXT,
+	"Regis_Salary"	TEXT,
+	"Regis_Job"	TEXT,
+	PRIMARY KEY("RegisID" AUTOINCREMENT)
+);`;
+            transaction.executeSql(sql,undefined,function(){
+                alert("Table is created successfully");
+            },function(){
+                alert("Table is already being created");
+            })
+        });
+    })
+    $('#submit').click(function(){
+        var Regis_THAIID = $('#Regis_THAIID').val();
+        var Regis_FName = $('#Regis_FName').val();
+        var Regis_LName = $('#Regis_LName').val();
+        var Regis_State = $('#Regis_State').val();
+        var Regis_Salary = $('#Regis_Salary').val();
+        var Regis_Job = $('#Regis_Job').val();
+        console.log(Regis_THAIID,Regis_FName,Regis_LName,Regis_State,Regis_Salary,Regis_Job)
+        var query = `INSERT INTO Regis(Regis_THAIID,Regis_FName,Regis_LName,
+        Regis_State,Regis_Salary,Regis_Job) values ('${Regis_THAIID}',
+        '${Regis_FName}', '${Regis_LName}', '${Regis_State}',
+        ${Regis_Salary},'${Regis_Job}'
+        )`
+        db.transaction(function(transaction){
+            transaction.executeSql(query,undefined,function(){
+                console.log("เย้ๆๆๆๆๆๆๆๆๆๆๆๆ")
+
+                },function(transaction,err){
+                    console.log(err.message)
+                
+            })
+        })
+        
+    })
+</script>

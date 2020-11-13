@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <style>
+      body {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>คำนวนดอกเบี้ยการซื้อรถ</legend>
+        ราคารถ : <input type="number" name="priceCar" id="priceCar" min="0" required /> บาท<br /><br />
+        เงินดาวน์ :
+        <input type="number" name="downCar" id="downCar" min="0" required /> บาท<br /><br />
+        ระยะเวลาผ่อน :
+        <select name="time" id="time">
+          <br /><br />
+          <option value="1" checked>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option></option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        ปี<br /><br />
+        ดอกเบี้ย : <input type="number" name="extra" id="extra" required value="5"/> %
+        <br /><br /><input type="submit" value="คำนวน" id="submit">
+    </fieldset>
+    <fieldset>
+      <legend>ผลลัพธ์</legend>
+      <div id="result"></div>
+    </fieldset>
+  </body>
+</html>
+<script>
+    $(function(){
+        $("#submit").click(function(){
+
+            //Variable Zone
+            var priceCar = $("#priceCar").val();
+            var downCar = $("#downCar").val();
+            var time = $("#time").val();
+            var time2 = time*12
+            var extra = $("#extra").val();
+            var extra2 = extra / 100;
+            var price = priceCar - downCar
+
+            if(price<=0){
+                alert("ทำไมไม่ซื้อสด?")
+            }else{
+
+            //Calculate Zone
+            var price2 = (((price*extra2*time)*time).toFixed(2))/time2
+            var totalPrice = price+((price*extra2*time)*time);
+            var msg = `
+            ยอดจัด : ${price} บาท <br>
+            ดอกเบี้ย : ${price} x ${extra}% = ${(price*extra2).toFixed(2)} บาท/ปี <br>
+            ผ่อน ${time} ปี : ${(price*extra2*time).toFixed(2)} บาท <br>
+            จ่าย : ${price2.toFixed(2)} บาท/เดือน <br>
+            จ่ายทั้งหมด : ${totalPrice} บาท
+            `
+            $("#result").html(msg,function(){
+                $("#result").fadeToggle("slow");
+            })
+        
+            }
+            //Debuging Zone
+            console.log(priceCar)
+            console.log(downCar)
+            console.log(time)
+            console.log(extra)
+            console.log(extra2)
+            console.log(price)
+        })
+    })
+</script>

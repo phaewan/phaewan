@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปรแกรมคำนวณเกรด</title>
+    <script src="/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+</head>
+<body>
+
+   <script language="JavaScript">
+    function calculateGrade()
+    {
+     var g = document.getElementById("g").value;
+     var objDiv = document.getElementById("showGrade");
+     if(g >= 80)
+      objDiv.innerHTML = "ได้เกรด A";
+     else if(g >= 70)
+      objDiv.innerHTML = "ได้เกรด B";
+     else if(g >= 60)
+      objDiv.innerHTML = "ได้เกรด C";
+     else if(g >= 50)
+      objDiv.innerHTML = "ได้เกรด D";
+     else
+      objDiv.innerHTML = "ได้เกรด F";
+    }
+   </script>
+    </head>
+    <body>
+     เกรด <input type="text" name="g" id="g"><input type="button" value="คำนวณเกรด" onclick="calculateGrade()">
+     <div id="showGrade"></div>
+
+   
+</body>
+</html>

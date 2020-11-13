@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+  
+    <script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $( function(){  
+           $("#bA").on("mouseenter",function(){
+               $('#1').show(1000)
+               $('#2').hide(2000)
+               $('#3').hide(2000)
+           })
+           $("#bB").on("mouseenter",function(){
+               $('#1').hide(2000)
+               $('#2').show(1000)
+               $('#3').hide(2000)
+           })
+           $("#bC").on("mouseenter",function(){
+               $('#1').hide(2000)
+               $('#2').hide(1000)
+               $('#3').show(1000)
+           })
+        });
+    </script>
+    <style>
+        #diva #divb #divc{
+            display: none;
+        }
+        div{
+            width: 100%;
+            height: 300px;
+            border : dotted black;
+        }
+    </style>
+
+<body>
+    <h1>สวัดสดีปีโป้</h1>
+<button id="bA">A</button>
+<button id="bB">B</button>
+<button id="bC">C</button>
+<br>
+<br>
+<img src="images/p1.jpg" id="1" hidden>
+<img src="images/p2.jpg" id="2" hidden>
+<img src="images/p3.jpg" id="3" hidden>
+</head>
+</body>
+</html>

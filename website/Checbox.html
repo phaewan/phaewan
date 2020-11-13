@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    function getData(form){
+        message=""
+for(let i=0;i<form.activity.length;i++){
+
+    if(form.activity[i].checked){
+
+    message+=form.activity[i].value+" ";
+    }
+}
+
+document.getElementById("ans").innerHTML=message
+
+
+}
+</script>
+
+</head>
+<body>
+    <center> checkbox </center>
+    เลือกสัตว์เลี้ยงที่คุณชอบ : 
+    <form action="/TestCheckbox.html" method="get" name="myFrom">
+    <input type="checkbox" name="activity" value="หมา"> หมา
+    <input type="checkbox" name="activity" value="แมว"> แมว
+    <input type="checkbox" name="activity" value="กระต่าย"> กระต่าย
+    <input type="checkbox" name="activity" value="วัว"> วัว 
+    <input type="checkbox" name="activity" value="งู"> งู <br><br>
+
+ <input type="button" onclick="getData(this.form)" value="ส่งข้อมูล">
+</form>
+ <p id="ans"></p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายการสินค้า</title>
+    <div>
+        ชื่อสินค้า :
+        <input type="text" id="Product_Name" name="Product_Name"> <br>
+        จำนวน :
+        <input type="text" id="Product_Among" name="Product_Among"> <br>
+        ราคา :
+        <input type="text" id="Product_Price" name="Product_Price"> <br>
+        <button id="submit">Submit</button>
+    </div>
+</head>
+<body>
+    
+    
+</body>
+</html>
+<script>
+    var db = openDatabase('DB_001','1.0','DB_001',2 * 1024 * 1024);
+    $(function(){
+        db.transaction(function(transaction){
+            var sql =`CREATE TABLE "Product" (
+	"Product_ID"	INTEGER,
+	"Product_Name"	TEXT,
+	"Product_Among"	INTEGER,
+	"Product_Price"	INTEGER,
+	PRIMARY KEY("Product_ID" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Order" (
+	"Order_ID"	INTEGER,
+	"Product_ID"	INTEGER,
+	"Product_Among"	INTEGER,
+	"Product_Price"	INTEGER,
+	PRIMARY KEY("Order_ID"),
+	FOREIGN KEY("Product_ID") REFERENCES "Product"("Product_ID")
+);
+CREATE TABLE IF NOT EXISTS "Bill" (
+	"Bill_ID"	INTEGER,
+	"Order_ID"	INTEGER,
+	"Bill_Price"	INTEGER,
+	PRIMARY KEY("Bill_ID")
+);`;
+            transaction.executeSql(sql,undefined,function(){
+                alert("Table is created successfuly");
+            },function(){
+                alert("Table is already being created");
+            })
+    });
+})
+$('#submit').click(function(){
+    var Product_Name =$('#Product_Name').val();
+    var Product_Among =$('#Product_Among').val();
+    var Product_Price =$('#Product_Price').val();
+    var query=`INSERT INTO Product(Product_Name,Product_Among,Product_Price) values ("${Product_Name}",${Product_Among},${Product_Price})`
+    db.transaction(function(transaction){
+    transaction.executeSql(query,undefined,function(){
+        console.log(Product_Name)
+        console.log("successed!!!")
+    },function(transaction,err){
+        console.log(err.message)
+    })
+    })
+}
+)
+</script>

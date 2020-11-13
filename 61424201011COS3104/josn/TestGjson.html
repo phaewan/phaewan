@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-min.js"></script>
+    <script>
+        $(function(){
+                $.getJSON("employee.json",function(data){
+                    
+                    $.each(data,function(i,value){
+                        var x="<tr>"
+                        x+="<td>"+(i+1)+"</td>"
+                        x+="<td>"+value.name+"</td>"
+
+                        x+="</tr>"
+                        $("#myT").append(x);
+                    
+
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+    <center><h1>ทดสอบดึงข้อมูลจากไฟล์ json</h1></center>    
+    <table id="myT" border=1 width="50%"></table>
+    <tr><th>ลำดับ</th></tr>
+</body>
+</html>

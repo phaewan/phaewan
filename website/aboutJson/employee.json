@@ -1,0 +1,47 @@
+
+[
+{
+    "name":"Mr x",
+    "age":20,
+    "email":"Mr x@gmail.com"
+},
+    {
+
+    "name":"Mr y",
+    "age":12,
+    "email":"Mr y@gmail.com"
+    },
+{
+    "name":"Mr z",
+    "age":19,
+    "email":"Mr z@gmail.com"
+    }    ,
+    
+    {
+        "name":"Mr w",
+        "age":17,
+        "email":"Mr w@gmail.com"
+        }   , 
+        
+        {
+            "name":"Mr e",
+            "age":12,
+            "email":"Mr e@gmail.com"
+            }  ,  
+            {
+                "name":"Mr t",
+                "age": 22,
+                "email":"Mr t@gmail.com"
+                },
+                {
+                    "name":"Mr o",
+                    "age":34,
+                    "email":"Mr o@gmail.com"
+                    },
+                    {
+                        "name":"Mr r",
+                        "age":12,
+                        "email":"Mr r@gmail.com"
+                        }
+]  
+

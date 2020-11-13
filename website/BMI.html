@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script language="JavaScript">
+      
+        function Bmi() {
+        var weight = document.bmiForm.weight.value
+        var height = document.bmiForm.height.value
+        if(weight > 0 && height > 0){	
+        var finalBmi = weight/(height/100*height/100)
+        document.bmiForm.bmi.value = finalBmi
+        if(finalBmi < 18.5){
+        document.bmiForm.meaning.value = "น้ำหนักต่ำกว่าเกณฑ์"
+        }
+        if(finalBmi > 18.5 && finalBmi < 22.9){
+        document.bmiForm.meaning.value = "สมส่วน"
+        }
+        if(finalBmi > 23 && finalBmi < 24.9){
+        document.bmiForm.meaning.value = "น้ำหนักเกิน"
+        }
+        if(finalBmi > 25 && finalBmi < 29.9){
+        document.bmiForm.meaning.value = "โรคอ้วน"
+        }
+        if(finalBmi > 30){
+        document.bmiForm.meaning.value = "โรคอ้วนอันตราย"
+        }
+        }
+        else{
+        alert("กรุณากรอกน้ำหนักและส่วนสูงของคุณ")
+        }
+        }
+        </script>
+</head>
+<body>
+   <form name="bmiForm">
+        กรุณากรอกน้ำหนักt(kg): <input type="text" name="weight" size="10"><br />
+        กรุณากรอกส่วนสูง(cm): <input type="text" name="height" size="10"><br />
+        <input type="button" value="คำนวณ" onClick="Bmi()"><br />
+         BMI ของคุณคือ : <input type="text" name="bmi" size="10"><br />
+       ภาวะน้ำหนักตัว : <input type="text" name="meaning" size="25"><br />
+       </form>
+</body>
+</html>
+
